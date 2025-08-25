@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .bg {
+            width: 100%;
+            height: 100vh;
+            background-image: url("https://static.vecteezy.com/system/resources/previews/008/014/115/non_2x/tropical-leaves-background-design-summer-leaves-flat-illustration-simple-banner-with-copy-space-free-vector.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+    
+        }
+
+        .box {
+            width: 380px;
+            height: 380px;
+            background-color: white;
+            margin: auto;
+            overflow-y: auto;
+            background-image: url("https://cdn.pixabay.com/photo/2017/08/04/10/32/background-2579710_640.jpg");
+        }
+
+        .box h2 {
+            text-align: center;
+            padding: 20px 20px;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .box input {
+            width: 85%;
+            padding: 10px 5px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        #to-do-list li {
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            list-style: none;
+            padding: 15px 20px;
+            background-color: rgb(169, 248, 244);
+            position: relative;
+        }
+
+        #to-do-list i {
+            position: absolute;
+            right: 10px;
+        }
+        .box li{
+            width: 300px;
+            margin: auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            box-shadow: 0px 0px 10px 2px #ccc;
+            background-color: rgb(169, 248, 244);
+            padding: 10px 20px;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .box i{
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="box">
+            <h2>Todo App</h2>
+            <input type="text" placeholder="Enter Your Task" id="item" autofocus />
+            <ul id="list">
+
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script>
+    let item = document.querySelector("#item")
+    let todoBox = document.querySelector("#list")
+
+    item.addEventListener("keyup", function (event) {
+        if (event.key == "Enter") {
+            addItem(this.value)
+            this.value = ""
+        }
+    }
+    )
+
+    let addItem = (item) =>{
+        let listItem = document.createElement("li")
+        listItem.innerHTML = `${item} <i class="fa-solid fa-trash"></i>`
+
+        listItem.querySelector("i").addEventListener("click",function(){
+            listItem.remove();
+        })
+
+        list.appendChild(listItem)
+    }
+</script>
+
+</html>
